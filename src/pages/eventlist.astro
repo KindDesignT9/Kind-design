@@ -1,5 +1,4 @@
 ---
-import ListCard from '../components/ListCard.astro';
 import Layout from '../layouts/Layout.astro';
 const endpoint = 'https://xrxrkbvgveqggbyflllj.supabase.co/rest/v1/Event_list?select=*';
 const options = {
@@ -9,7 +8,7 @@ const events = await fetch(endpoint, options).then((res)=> res.json());
 import Buttonblaa from '../components/Buttonblaa.astro';
 ---
 
-<Layout title="Events">
+<Layoutevent title="Events">
  
  <Buttonblaa text="TICKETS" href="/eventlist" />
  
@@ -17,4 +16,4 @@ import Buttonblaa from '../components/Buttonblaa.astro';
     <section>
         {events.map((event) => <ListCard {event} />)}
     </section>
-</Layout>
+</Layoutevent>
