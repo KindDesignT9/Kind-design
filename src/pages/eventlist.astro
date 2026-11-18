@@ -1,4 +1,9 @@
 ---
 import Layout from '../layouts/Layout.astro';
 const endpoint = 'https://xrxrkbvgveqggbyflllj.supabase.co/rest/v1/Event_list?select=*';
+import Buttonblaa from '../components/Buttonblaa.astro';
 ---
+
+<Layout title="Events">
+  <Buttonblaa text="TICKETS" href="/eventlist" />
+</Layout>
