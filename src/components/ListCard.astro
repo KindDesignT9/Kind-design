@@ -4,14 +4,14 @@
 const { event } = Astro.props;
 ---
 
-<a href=`../single-view/${event.id}`>
+<!-- <a href=`../single-view/${event.id}`> -->
 <article>
-<img src= {event.img} alt= {event.event-navn}>
-<h2> {event.event-navn} </h2>
+<img src= {event.img} alt= {event.event_navn}>
+<h2> {event.event_navn} </h2>
 <p> {event.short_info}</p>
-<!-- knap her --> <a href=`../details/${event.id}`>
+<!-- knap her --> <a href=`../details/${event.id}`> </a>
 </article>
-</a>
+<!-- </a> -->
 
 <style>
     a{

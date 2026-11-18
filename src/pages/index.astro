@@ -5,7 +5,7 @@ const endpoint = 'https://xrxrkbvgveqggbyflllj.supabase.co/rest/v1/Event_list?se
 const options = {
     headers:{apikey: 'sb_publishable_JC8KpAkpoJ3W0WeRi7EfsA_4lgf8OWs'}
 }
-const data = await fetch(endpoint, options).then((res)=> res.json());
+const events = await fetch(endpoint, options).then((res)=> res.json());
 // console.table(data);
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
