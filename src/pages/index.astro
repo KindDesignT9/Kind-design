@@ -15,6 +15,8 @@ const response = await fetch(endpoint, options);
 
 console.log(events);
 console.log(events);
+const events = await fetch(endpoint, options).then((res)=> res.json());
+// console.table(data);
 
 ---
 
