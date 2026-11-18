@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Indexcard from '../components/indexcard.astro';
 const endpoint = 'https://xrxrkbvgveqggbyflllj.supabase.co/rest/v1/Event_list?select=*';
 
 const options = {
@@ -13,4 +14,8 @@ console.table(data);
 ---
 
 <Layout title="Forside">
+
+    <Indexcard p="upcoming" h3="READYMAG" text="Join us for an inspiring event exploring the intersection of artificial intelligence and" href="/single-view"/>
+
 </Layout>
+
