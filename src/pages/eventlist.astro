@@ -1,5 +1,5 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import Layoutevent from '../layouts/Layoutevent.astro';
 const endpoint = 'https://xrxrkbvgveqggbyflllj.supabase.co/rest/v1/Event_list?select=*';
 const options = {
     headers:{apikey: 'sb_publishable_JC8KpAkpoJ3W0WeRi7EfsA_4lgf8OWs'}
@@ -8,7 +8,7 @@ const data = await fetch(endpoint, options).then((res)=> res.json());
 import Buttonblaa from '../components/Buttonblaa.astro';
 ---
 
-<Layout title="Events">
+<Layoutevent title="Events">
   <Buttonblaa text="TICKETS" href="/eventlist" />
   
-</Layout>
+</Layoutevent>
