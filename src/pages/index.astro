@@ -2,6 +2,8 @@
 import Layout from '../layouts/Layout.astro';
 import Indexcard from '../components/indexcard.astro';
 import Footer from '../components/footer.astro';
+import Buttonblaa from '../components/Buttonblaa.astro';
+import Buttonbrun from '../components/Buttonbrun.astro';
 const endpoint = 'https://xrxrkbvgveqggbyflllj.supabase.co/rest/v1/Event_list?select=*';
 
 const options = {
@@ -9,7 +11,7 @@ const options = {
 }
 const events = await fetch(endpoint, options).then((res)=> res.json());
 const response = await fetch(endpoint, options);
-import Buttonbrun from '../components/Buttonbrun.astro';
+
 
 
 
@@ -18,7 +20,6 @@ import Buttonbrun from '../components/Buttonbrun.astro';
 ---
 
 <Layout title="Forside">
-<<<<<<< HEAD
 
   <!-- {events.map((event) => (
     <article>
@@ -27,10 +28,128 @@ import Buttonbrun from '../components/Buttonbrun.astro';
     </article>
   ))} -->
 
-  <Buttonbrun text="READ MORE" href="" />
-=======
-    <Indexcard p="upcoming" h3="READYMAG" text="Join us for an inspiring event exploring the intersection of artificial intelligence and" href="/single-view"/>
+<section class="index1del">
+<div class="forside-billede">
+    <img src="/kdforside.webp" alt="forside billede">
+
+    <div class="logo">
+<img src="/smileylogo_gul.svg" alt="gult smiley logo">
+    </div>
+
+    <h1>KIND DESIGN <br> COPENHAGEN</h1>
+
+</div>
+</section>
+
+
+<section class="index2del">
+<div class="index2del_indhold">
+<h2>For all kinds of designers</h2>
+<p>A space to connect, share ideas and inspire one another through creative events and meaningful collaborations.</p>
+<Buttonbrun text="READ MORE" href="" />
+</div>
+</section>
+
+
+<section class="indexcards">
+
+    <div class="events-billede">
+    <img src="/forsideevents.webp" alt="forside events billede">
+
+    <h1>EVENTS</h1>
+</div>
+
+
+<div class="cards">
+ <Indexcard p="upcoming" h3="READYMAG" text="Join us for an inspiring event exploring the intersection of artificial intelligence and" href="/single-view"/>
+  <Indexcard p="upcoming" h3="MEETUP" text="Join us for an inspiring event exploring the intersection of artificial intelligence and" href="/single-view"/>
+</div>
+
+<div class="forside_cta">
+<Buttonblaa text="ALL EVENTS" href="" />
+</div>
+
+</section>
+
+   
 <Footer/> 
->>>>>>> footer
 </Layout>
+
+
+<style>
+    .forside-billede{
+        position: relative;
+    }
+
+    .forside-billede img {
+        width: 100%;
+        display: block;
+    }
+
+    .logo {
+        position: absolute;
+        z-index: 2;
+        top: 20px;
+        left: 50%;
+        transform: translate(-50%);
+    }
+
+    .logo img {
+        width: 80px;
+    }
+
+    h1{
+        position: absolute;
+        z-index: 2;
+        bottom: 0.5px;
+        left: 20px;
+        color: #FEFDAE;
+    }
+
+
+    .index2del {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 70px;
+    }
+
+.indexcards{
+    background-color: #160709;
+    border-radius: 20px 20px 0 0;
+}
+
+.events-billede {
+    position: relative;
+}
+
+  .events-billede img {
+      width: 100%;
+      border-radius: 20px 20px 0 0;
+      display: block;
+    }
+
+    .events-billede h1{
+      position: absolute;
+       top: 20px;
+        left: 50%;
+        transform: translate(-50%);
+    }
+
+    .cards {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        padding: 20px;
+    }
+
+    .forside_cta {
+        display: flex;
+        justify-content: center;
+        padding-top: 10px;
+        padding-bottom: 50px;
+    }
+</style>
+
 
