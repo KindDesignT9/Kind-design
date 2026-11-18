@@ -1,5 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Indexcard from '../components/indexcard.astro';
+import Footer from '../components/footer.astro';
 const endpoint = 'https://xrxrkbvgveqggbyflllj.supabase.co/rest/v1/Event_list?select=*';
 
 const options = {
@@ -16,6 +18,7 @@ import Buttonbrun from '../components/Buttonbrun.astro';
 ---
 
 <Layout title="Forside">
+<<<<<<< HEAD
 
   <!-- {events.map((event) => (
     <article>
@@ -25,4 +28,9 @@ import Buttonbrun from '../components/Buttonbrun.astro';
   ))} -->
 
   <Buttonbrun text="READ MORE" href="" />
+=======
+    <Indexcard p="upcoming" h3="READYMAG" text="Join us for an inspiring event exploring the intersection of artificial intelligence and" href="/single-view"/>
+<Footer/> 
+>>>>>>> footer
 </Layout>
+

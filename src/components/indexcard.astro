@@ -1,0 +1,75 @@
+---
+const { p, h3, text, href } = Astro.props;
+---
+
+<a href={href} class="indexcard">
+
+<div class="indexcard_indhold">
+<p class="upcoming">{p}</p>
+<h3>{h3}</h3>
+<p class="beskrivelse">{text}</p>
+</div>
+
+<div class="buetpil">
+<img src="/buet.pil.glat.svg" alt="buet pil">
+</div>
+
+</a>
+
+
+
+<style>
+
+    .indexcard {
+        border: 1px solid #FFFFF5;
+        border-radius: 20px;
+        padding: 10px 20px;
+        text-decoration: none;
+
+        display: flex;
+        justify-content: space-between;
+        align-items: stretch;
+
+        h3{
+    color: #C8E8F8;
+    margin-bottom: -0.5rem;
+  }
+
+  .beskrivelse{
+    color: white;
+  }
+    }
+
+    .indexcard_indhold {
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .buetpil{
+        display: flex;
+        flex: 1;
+        align-items: center;
+        justify-content: center;
+    }
+
+  .upcoming {
+        /* baggrundsfarven er denne #160709 med opacitet 70% */
+        background-color: rgba(22, 7, 9, 0.7);
+        border-radius: 10px;
+        color: #FEFDAE;
+        padding: 5px 10px;
+        margin-bottom: 0.3rem;
+  }
+
+
+  .buetpil img{
+    width: 100px;
+    height: auto;
+  }
+
+   
+
+</style>
+
