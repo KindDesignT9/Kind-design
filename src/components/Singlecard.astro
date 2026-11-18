@@ -1,0 +1,56 @@
+---
+const { eventinfo } = Astro.props;
+---
+
+<article class="singlecard">
+  <!-- back button -->
+
+  <h1>{eventinfo.event_navn}</h1>
+
+  <div class="flex">
+    <div class="date">
+      <h3>{eventinfo.dato}</h3>
+      <h3>{eventinfo.tid}</h3>
+    </div>
+
+    <p class="address">{eventinfo.adresse}</p>
+  </div>
+
+</article>
+
+<style>
+ .singlecard {
+    width: 100%;
+    min-height: 70vh;
+    box-sizing: border-box;
+    padding: 40px 30px;
+    background-color: rgb(200, 232, 248, 0.8);
+    border-radius: 0 0 60px 60px;
+  }
+
+  h1 {
+    font-size: 42px;
+    text-transform: uppercase;
+  }
+
+  .flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    margin-top: 100px;
+    gap: 15px;
+  }
+  .date {
+    font-size: 24px;
+    font-weight: bold;
+  }
+
+  .date p,
+  .address {
+    margin: 0;
+  }
+
+  .address {
+    text-align: right;
+  }
+</style>

@@ -1,17 +1,20 @@
 ---
 // consten er skrevet på dansk 
 
-const { event } = Astro.props;
+const {event} = Astro.props;
 ---
 
 <article>
-<a href=`../single-view/${event.id}`>
-<img src= {event.img} alt= {event.event_navn}>
-<h2> {event.event_navn} </h2>
-<p> {event.short_info}</p>
-<!-- knap her --> <a href=`../details/${event.id}`> </a>
 
-</a>
+  <a href={`/single-view/${event.id}`}>
+    <img src={event.img} alt={event.event_navn}>
+    <h2>{event.event_navn}</h2>
+    <p>{event.short_info}</p>
+  </a>
+
+  <a href={`/details/${event.id}`}>
+    Læs mere
+  </a>
 </article>
 
 <style>
