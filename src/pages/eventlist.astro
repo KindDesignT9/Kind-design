@@ -11,9 +11,11 @@ import Buttonblaa from '../components/Buttonblaa.astro';
 
 <Layoutevent title="Events">
  
- <Buttonblaa text="TICKETS" href="/eventlist" />
  
+ <a href="/" class="back"><--- BACK</a>
+
     <h2>UPCOMING EVENTS</h2>
+    <Buttonblaa text="All events" href="/eventlist" /> <Buttonblaa text="Talks" href="/eventlist" /> <Buttonblaa text="Workshops" href="/eventlist" /> <Buttonblaa text="Social" href="/eventlist" />
     <section class="hero">
         {events.map((event) => <ListCard {event} />)}
     </section>
@@ -27,4 +29,12 @@ import Buttonblaa from '../components/Buttonblaa.astro';
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-}</style>
+}
+
+.back {
+    color: #160709;
+    text-decoration: none;
+    font-size: 15px;
+    display: inline-block;
+}
+</style>
