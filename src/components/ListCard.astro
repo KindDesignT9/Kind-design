@@ -1,6 +1,5 @@
 ---
 const { event } = Astro.props;
-import Buttonbrun from "../components/Buttonbrun.astro";
 ---
 
 <a href={`/single-view/${event.id}`}>
@@ -12,7 +11,7 @@ import Buttonbrun from "../components/Buttonbrun.astro";
 
     <div class="listcard-img-button">
       <img src={event.img} alt={event.event_navn} />
-      <Buttonbrun text="Read more" />
+      <span class="read-more">Read more</span>
     </div>
   </article>
 </a>
@@ -23,21 +22,20 @@ import Buttonbrun from "../components/Buttonbrun.astro";
 
 <style>
   a {
-    text-decoration: none;
     color: #160709;
+    text-decoration: none;
   }
 
   article {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 12px;
+    min-height: 240px;
     padding: 12px;
-
-    /* min-height: 220px;
-      box-sizing: border-box;*/
-
-    border-radius: 20px;
-    background-color: rgb(200, 232, 248, 0.8);
+    box-sizing: border-box;
+    border-radius: 22px;
+    background: rgb(200 232 248 / 80%);
+    box-shadow: 0 4px 8px rgb(0 0 0 / 25%);
   }
 
   .list-card-textwrapper {
@@ -47,24 +45,45 @@ import Buttonbrun from "../components/Buttonbrun.astro";
     min-width: 0;
   }
 
+  /* h2 {
+      margin: 0;
+      line-height: 1;
+      text-transform: uppercase;
+    } */
+
   .listcard-img-button {
     position: relative;
+    min-height: 190px;
     overflow: hidden;
     border-radius: 10px;
   }
 
-  .img {
+  .listcard-img-button img {
     display: block;
-    max-width: 100%;
-    height: 100px;
+    width: 100%;
+    height: 190px;
     object-fit: cover;
-    border-radius: 10px;
   }
 
-  .listcard-img-button :global(a) {
+  .listcard-img-button :global(.read-more) {
     position: absolute;
     bottom: 10px;
     left: 50%;
     transform: translateX(-50%);
+  }
+
+  .read-more {
+    background-color: #160709;
+    color: #fffff5;
+    padding: 10px 20px;
+    border-radius: 15px;
+    text-decoration: none;
+    font-size: 8px;
+    cursor: pointer;
+    box-sizing: border-box;
+  }
+
+  .read-more:hover {
+    background-color: #5c5153;
   }
 </style>
