@@ -1,21 +1,105 @@
 <nav>
-    <a href="/" class="logo">
+  <a href="/" class="logo">
     <img src="/kdlogogul.webp" alt="smiley logo" />
   </a>
-  <a>ABOUT</a>
-  <a href="/eventlist">EVENTS</a>
-  <a>COLLABORATORS</a>
+
+  <div class="nav-links">
+    <a>About</a>
+    <a href="/eventlist">Events</a>
+    <a>Collaborators</a>
+    <a class="joinus">JOIN US</a>
+  </div>
+
+  <div class="mobile-menu">
+  <a>About</a>
+  <a href="/eventlist">Events</a>
+  <a>Collaborators</a>
   <a class="joinus">JOIN US</a>
+</div>
+
+  <button class="burger" aria-label="Åbn menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
 </nav>
 
+<script>
+  const burger = document.querySelector(".burger");
+  const nav = document.querySelector("nav");
+
+  burger?.addEventListener("click", () => {
+    nav?.classList.toggle("active");
+      burger.classList.toggle("active");
+  });
+
+
+</script>
+
 <style>
+  /* Burgerikon */
+.burger {
+  display: none;
+  background: none;
+  border: none;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.burger span {
+  display: block;
+  width: 25px;
+  height: 2px;
+  background-color: #FEFDAE;
+  margin: 5px 0;
+}
+
+/* Mobil */
+@media (max-width: 768px) {
+
+  .nav-links,
+  .logo img {
+    display: none;
+  }
+
+  .burger {
+    display: block;
+    position: relative;
+    z-index: 20;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+  }
+
+  .burger span {
+    display: block;
+    width: 25px;
+    height: 2px;
+    margin: 5px 0;
+    background-color: #FEFDAE;
+  }
+  .burger.active span {
+  background-color: #160709;
+}
+
+.burger.active span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.burger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.burger.active span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
   nav {
     display: flex;
     justify-content: flex-end;
     align-items: center;
     gap: 10px;
     padding: 20px;
-
     position: absolute;
     top: 0;
     left: 0;
@@ -25,17 +109,21 @@
 }
 
   a {
-    color: #FEFDAE;
-    border: 1px solid #FEFDAE;
-    border-radius: 20px;
+    color: #160709;
     padding: 8px 15px;
     text-decoration: none;
-    font-size: 15px;
   }
 
   .joinus {
     background-color: #160709;
     color: #FEFDAE;
+    border: solid 1px #FEFDAE;
+    width: fit-content;
+		padding: 10px 20px;
+		border-radius: 15px;
+		text-decoration: none;
+		font-size: 8px;
+		cursor: pointer;
   }
 
   .logo {
@@ -43,8 +131,22 @@
     border: none;
   }
 
-  nav a:not(.logo):hover {
-    background-color: #FEFDAE;
-    color: #160709;
-  }
+  .mobile-menu {
+  display: none;
+}
+
+nav.active .mobile-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  position: absolute;
+  text-align: left;
+  top: 0;
+  right: 0;
+  width: 50%;
+  padding: 80px 25px 20px;
+  box-sizing: border-box;
+  background-color: #FFFFF5;
+  z-index: 9;
+} }
 </style>
