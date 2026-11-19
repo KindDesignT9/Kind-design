@@ -12,8 +12,11 @@ import Buttonblaa from "../components/Buttonblaa.astro";
 ---
 
 <Layout>
+  <Navbareventside />
   <ButtonBack />
-  <h2>UPCOMING EVENTS</h2>
+  <h1>
+    UPCOMING <br /> EVENTS
+  </h1>
 
   <section class="hero">
     <div class="filterwrap">
@@ -26,6 +29,13 @@ import Buttonblaa from "../components/Buttonblaa.astro";
 </Layout>
 
 <style>
+  h1 {
+    margin-left: 1rem;
+  }
+
+  section {
+    padding-bottom: 2rem;
+  }
   .hero {
     position: relative;
     isolation: isolate;
