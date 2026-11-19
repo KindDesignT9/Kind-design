@@ -11,7 +11,7 @@ const events = await fetch(endpoint, options).then((res) => res.json());
 import Buttonblaa from "../components/Buttonblaa.astro";
 ---
 
-<Layout title="Events">
+<Layout>
   <ButtonBack />
   <h2>UPCOMING EVENTS</h2>
 
@@ -23,7 +23,6 @@ import Buttonblaa from "../components/Buttonblaa.astro";
       <ListCard {event} />
     ))}
   </section>
-  <Footer />
 </Layout>
 
 <style>
