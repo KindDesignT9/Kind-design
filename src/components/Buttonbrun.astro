@@ -3,27 +3,25 @@ const { text, href } = Astro.props;
 ---
 
 <a href={href} class="buttonbrun">
-    {text}
+  {text}
 </a>
 
 <style>
-	.buttonbrun {
-		background-color: #160709;
-		color: #fffff5;
-		padding: 10px 20px;
-		border-radius: 15px;
-		text-decoration: none;
-		display: inline-flex; 
-		font-size: 8px;
-		cursor: pointer;
-box-sizing: border-box;
-align-items: center;
-justify-content: center;
-	}
+  .buttonbrun {
+    background-color: #160709;
+    color: #fffff5;
+    padding: 10px 20px;
+    border-radius: 15px;
+    text-decoration: none;
+    display: inline-flex;
+    font-size: 8px;
+    cursor: pointer;
+    box-sizing: border-box;
+    align-items: center;
+    justify-content: center;
+  }
 
-
-.buttonbrun:hover {
-    background-color: #5C5153;
-}
+  .buttonbrun:hover {
+    background-color: #5c5153;
+  }
 </style>
-
