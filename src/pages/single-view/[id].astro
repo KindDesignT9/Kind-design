@@ -37,9 +37,15 @@ const { eventinfo } = Astro.props;
 
     <Buttonblaa text="TICKETS" href="#" />
   </section> 
-</Layout>
+<section class="singleview_tekst">
+  <h3>{eventinfo.h3_singleview}</h3>
+  <p>{eventinfo.tekst_singleview}</p>
 
+</section>
+
+</Layout>
 <style>
+  p {white-space: pre-line;}
   .navbar-wrapper {
     position: absolute;
     top: 0;
@@ -48,7 +54,7 @@ const { eventinfo } = Astro.props;
     z-index: 10;
   }
   .hero {
-    min-height: 100vh;
+    min-height: 55vh;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -56,5 +62,8 @@ const { eventinfo } = Astro.props;
     display: flex;
     flex-direction: column;
     align-items: center;
+  }
+  .singleview_tekst {
+    margin: 2rem;
   }
 </style>
