@@ -1,6 +1,7 @@
 ---
 import ListCard from '../components/ListCard.astro';
 import Layoutevent from '../layouts/Layoutevent.astro';
+import ButtonBack from '../components/ButtonBack.astro';
 const endpoint = 'https://xrxrkbvgveqggbyflllj.supabase.co/rest/v1/Event_list?select=*';
 const options = {
     headers:{apikey: 'sb_publishable_JC8KpAkpoJ3W0WeRi7EfsA_4lgf8OWs'}
@@ -12,7 +13,7 @@ import Buttonblaa from '../components/Buttonblaa.astro';
 <Layoutevent title="Events">
  
  
- <a href="/" class="back">← BACK</a>
+ <ButtonBack />
 
     <h2>UPCOMING EVENTS</h2>
     <Buttonblaa text="All events" href="/eventlist" /> <Buttonblaa text="Talks" href="/eventlist" /> <Buttonblaa text="Workshops" href="/eventlist" /> <Buttonblaa text="Social" href="/eventlist" />

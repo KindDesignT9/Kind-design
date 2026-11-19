@@ -1,0 +1,17 @@
+<button class="button-back" type="button" data-back-button>
+  ← Back
+</button>
+<script>
+  document.querySelectorAll<HTMLButtonElement>("[data-back-button]").forEach((button) => {
+    button.addEventListener("click", () => window.history.back());
+  });
+</script>
+<style>
+  .button-back {
+    color: #160709;
+    text-decoration: none;
+    font-size: 15px;
+    display: inline-block;
+    cursor: pointer;
+  }
+</style>
