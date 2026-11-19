@@ -1,8 +1,8 @@
 ---
-import Footer from '../../components/Footer.astro';
+import Navbareventside from '../../components/Navbareventside.astro';
 import Buttonblaa from '../../components/Buttonblaa.astro';
 import Singlecard from '../../components/Singlecard.astro';
-import Layoutevent from '../../layouts/Layoutevent.astro';
+import Layout from '../../layouts/Layout.astro';
 export async function getStaticPaths() {
 const endpoint = 'https://xrxrkbvgveqggbyflllj.supabase.co/rest/v1/Event_list?select=*';
 
@@ -25,7 +25,10 @@ const { id } = Astro.params;
 const { eventinfo } = Astro.props;
 ---
 
-<Layoutevent title={eventinfo["event-navn"]}>
+<Layout title="Event">
+  <div class="navbar-wrapper">
+  <Navbareventside />
+  </div>
   <section
     class="hero"
     style={`background-image: url('${eventinfo.img}')`}>
@@ -33,11 +36,17 @@ const { eventinfo } = Astro.props;
     <Singlecard eventinfo={eventinfo} />
 
     <Buttonblaa text="TICKETS" href="#" />
-  </section>
-  <Footer/> 
-</Layoutevent>
+  </section> 
+</Layout>
 
 <style>
+  .navbar-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+  }
   .hero {
     min-height: 100vh;
     background-size: cover;

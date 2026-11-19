@@ -1,7 +1,7 @@
 ---
-import Footer from '../components/Footer.astro';
 import ListCard from '../components/ListCard.astro';
-import Layoutevent from '../layouts/Layoutevent.astro';
+import Navbareventside from '../components/Navbareventside.astro';
+import Layout from '../layouts/Layout.astro';
 const endpoint = 'https://xrxrkbvgveqggbyflllj.supabase.co/rest/v1/Event_list?select=*';
 const options = {
     headers:{apikey: 'sb_publishable_JC8KpAkpoJ3W0WeRi7EfsA_4lgf8OWs'}
@@ -10,8 +10,8 @@ const events = await fetch(endpoint, options).then((res)=> res.json());
 import Buttonblaa from '../components/Buttonblaa.astro';
 ---
 
-<Layoutevent title="Events">
- 
+<Layout title="Events">
+ <Navbareventside/>
  
  <a href="/" class="back"><--- BACK</a>
 
@@ -19,9 +19,8 @@ import Buttonblaa from '../components/Buttonblaa.astro';
     <Buttonblaa text="All events" href="/eventlist" /> <Buttonblaa text="Talks" href="/eventlist" /> <Buttonblaa text="Workshops" href="/eventlist" /> <Buttonblaa text="Social" href="/eventlist" />
     <section class="hero">
         {events.map((event) => <ListCard {event} />)}
-    </section>
-    <Footer/> 
-</Layoutevent>
+    </section> 
+</Layout>
 
 <style> 
 
