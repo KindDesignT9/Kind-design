@@ -1,6 +1,4 @@
 ---
-
-import ListCard from '../components/ListCard.astro';
 import Layout from '../layouts/Layout.astro';
 import Indexcard from '../components/indexcard.astro';
 import Footer from '../components/footer.astro';
@@ -11,7 +9,7 @@ const endpoint = 'https://xrxrkbvgveqggbyflllj.supabase.co/rest/v1/Event_list?se
 const options = {
     headers:{apikey: 'sb_publishable_JC8KpAkpoJ3W0WeRi7EfsA_4lgf8OWs'}
 }
-const event = await fetch(endpoint, options).then((res)=> res.json());
+const events = await fetch(endpoint, options).then((res)=> res.json());
 const response = await fetch(endpoint, options);
 
 
@@ -63,8 +61,9 @@ const response = await fetch(endpoint, options);
 
 
 <div class="cards">
- <Indexcard p="upcoming" h3="READYMAG" text="Join us for an inspiring event exploring the intersection of artificial intelligence and" href="/single-view"/>
-  <Indexcard p="upcoming" h3="MEETUP" text="Join us for an inspiring event exploring the intersection of artificial intelligence and" href="/single-view"/>
+  {events
+    .filter((indexcard) => [2, 3].includes(indexcard.id))
+    .map((indexcard) => <Indexcard indexcard={indexcard} />)}
 </div>
 
 <div class="forside_cta">
