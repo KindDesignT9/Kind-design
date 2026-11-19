@@ -1,27 +1,71 @@
----
-// const { overlay = false } = Astro.props;
----
 <nav>
-    <a href="/" class="logo">
-    <img src="/kdlogobrun.webp" alt="smiley brun logo" />
+  <a href="/" class="logo" aria-label="Kind Design home">
+    <img src="/kdlogobrun.webp" alt="Kind Design" />
   </a>
-  <a>ABOUT</a>
-  <a href="/eventlist">EVENTS</a>
-  <a>COLLABORATORS</a>
-  <a class="joinus">JOIN US</a>
+
+  <div class="nav-links">
+    <a>About</a>
+    <a href="/eventlist">Events</a>
+    <a>Collaborators</a>
+    <a class="joinus">JOIN US</a>
+  </div>
+
+  <button class="burger" type="button" aria-label="Toggle menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
+  <div class="mobile-menu">
+    <a>About</a>
+    <a href="/eventlist">Events</a>
+    <a>Collaborators</a>
+    <a class="joinus">JOIN US</a>
+  </div>
 </nav>
+
+<script>
+  const burger = document.querySelector(".burger");
+  const nav = document.querySelector("nav");
+
+  burger?.addEventListener("click", () => {
+    nav?.classList.toggle("active");
+    burger.classList.toggle("active");
+  });
+</script>
 
 <style>
   nav {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
     display: flex;
-    justify-content: flex-end;
     align-items: center;
+    justify-content: flex-end;
     gap: 10px;
+    width: 100%;
     padding: 20px;
+    box-sizing: border-box;
   }
+
+  nav .logo {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    display: block;
+    margin-right: auto;
+    border: none;
+    transform: translateX(-50%);
+  }
+
+  nav .logo img {
+    display: block;
+    width: 80px;
+  }
+
   a {
-    color: none;
-    text-color: #160709;
+    color: #160709;
     border: 1px solid #160709;
     border-radius: 20px;
     padding: 8px 15px;
@@ -29,17 +73,105 @@
     font-size: 15px;
   }
 
+  .burger {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 40px;
+    height: 40px;
+    padding: 7px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    position: relative;
+    z-index: 20;
+  }
+
+  .burger span {
+    display: block;
+    width: 25px;
+    height: 2px;
+    background-color: #160709;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+  }
+
+  .burger.active span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+
+  .burger.active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .burger.active span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  .nav-links,
+  .mobile-menu {
+    display: none;
+  }
+
   .joinus {
     background-color: #160709;
     color: #FEFDAE;
   }
 
-  .logo {
-    margin-right: auto;
-    border: none;
+  nav.active .mobile-menu {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 9;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+    width: 50%;
+    min-height: 220px;
+    padding: 80px 25px 20px;
+    box-sizing: border-box;
+    background-color: #FFFFF5;
   }
-   nav a:not(.logo):hover {
-    background-color: #FEFDAE;
+
+  nav.active .mobile-menu a {
     color: #160709;
+    border: none;
+    padding: 4px 0;
+  }
+
+  nav.active .mobile-menu .joinus {
+    padding: 4px 10px;
+    border: 1px solid #160709;
+    color: #FEFDAE;
+  }
+
+  @media (min-width: 769px) {
+    nav .logo {
+      position: static;
+      display: block;
+      margin-right: auto;
+      transform: none;
+    }
+
+    nav .logo img {
+      width: auto;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .burger,
+    .mobile-menu {
+      display: none;
+    }
+
+    .nav-links a:hover {
+      background-color: #160709;
+      color: #FEFDAE;
+    }
   }
 </style>
