@@ -5,10 +5,15 @@ import Buttonbrun from "../components/Buttonbrun.astro";
 
 <a href={`/single-view/${event.id}`}>
   <article>
-    <img src={event.img} alt={event.event_navn} />
-    <h2>{event.event_navn}</h2>
-    <p>{event.short_info}</p>
-    <Buttonbrun text="Read more" href={`/single-view/${event.id}`} />
+    <div class="list-card-textwrapper">
+      <h2>{event.event_navn}</h2>
+      <p>{event.short_info}</p>
+    </div>
+
+    <div class="listcard-img-button">
+      <img src={event.img} alt={event.event_navn} />
+      <Buttonbrun text="Read more" />
+    </div>
   </article>
 </a>
 
@@ -21,14 +26,45 @@ import Buttonbrun from "../components/Buttonbrun.astro";
     text-decoration: none;
     color: #160709;
   }
+
   article {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    padding: 12px;
+
+    /* min-height: 220px;
+      box-sizing: border-box;*/
+
     border-radius: 20px;
     background-color: rgb(200, 232, 248, 0.8);
   }
 
-  img {
+  .list-card-textwrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-width: 0;
+  }
+
+  .listcard-img-button {
+    position: relative;
+    overflow: hidden;
     border-radius: 10px;
-    width: 120px;
-    height: 130px;
+  }
+
+  .img {
+    display: block;
+    max-width: 100%;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+
+  .listcard-img-button :global(a) {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
   }
 </style>
