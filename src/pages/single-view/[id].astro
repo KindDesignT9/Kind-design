@@ -2,7 +2,7 @@
 import Footer from '../../components/Footer.astro';
 import Buttonblaa from '../../components/Buttonblaa.astro';
 import Singlecard from '../../components/Singlecard.astro';
-import Layout from '../../layouts/Layout.astro';
+import Layoutevent from '../../layouts/Layoutevent.astro';
 export async function getStaticPaths() {
 const endpoint = 'https://xrxrkbvgveqggbyflllj.supabase.co/rest/v1/Event_list?select=*';
 
@@ -25,7 +25,7 @@ const { id } = Astro.params;
 const { eventinfo } = Astro.props;
 ---
 
-<Layout>
+<Layoutevent title={eventinfo["event-navn"]}>
   <section
     class="hero"
     style={`background-image: url('${eventinfo.img}')`}>
@@ -35,10 +35,9 @@ const { eventinfo } = Astro.props;
     <Buttonblaa text="TICKETS" href="#" />
   </section>
   <Footer/> 
-</Layout>
+</Layoutevent>
 
 <style>
-  <style>
   .hero {
     min-height: 100vh;
     background-size: cover;
