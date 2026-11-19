@@ -1,0 +1,180 @@
+<nav>
+  <a href="/" class="logo" aria-label="Kind Design home">
+    <img src="/kdlogogul.webp" alt="Kind Design" />
+  </a>
+
+  <div class="nav-links">
+    <a>ABOUT</a>
+    <a href="/eventlist">EVENTS</a>
+    <a>COLLABORATORS</a>
+    <a class="joinus">JOIN US</a>
+  </div>
+
+  <button class="burger" type="button" aria-label="Toggle menu">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
+  <div class="mobile-menu" id="mobile-menu">
+    <a>ABOUT</a>
+    <a href="/eventlist">EVENTS</a>
+    <a>COLLABORATORS</a>
+    <a class="joinus">JOIN US</a>
+  </div>
+</nav>
+
+<script>
+  const burger = document.querySelector(".burger");
+  const nav = document.querySelector("nav");
+  burger?.addEventListener("click", () => {
+    nav?.classList.toggle("active");
+    burger.classList.toggle("active");
+  });
+</script>
+
+<style>
+  nav {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 10px;
+    padding: 20px;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    box-sizing: border-box;
+    z-index: 10;
+  }
+
+  .logo {
+    margin-right: auto;
+    border: none;
+  }
+
+  a {
+    color: #FEFDAE;
+    border: 1px solid #FEFDAE;
+    border-radius: 20px;
+    padding: 8px 15px;
+    text-decoration: none;
+    font-size: 15px;
+  }
+
+  .burger {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 40px;
+    height: 40px;
+    padding: 7px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    position: relative;
+    z-index: 20;
+  }
+
+  .burger span {
+    display: block;
+    width: 25px;
+    height: 2px;
+    background-color: #FEFDAE;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+  }
+
+  .burger.active span {
+    background-color: #160709;
+  }
+
+  .burger.active span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+
+  .burger.active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .burger.active span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  .nav-links,
+  .mobile-menu {
+    display: none;
+  }
+
+  .joinus {
+    background-color: #160709;
+    color: #FEFDAE;
+  }
+
+  nav.active .mobile-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50%;
+    min-height: 220px;
+    padding: 80px 25px 20px;
+    box-sizing: border-box;
+    background-color: #FFFFF5;
+    z-index: 9;
+  }
+
+  nav .logo {
+    display: none;
+  }
+
+  nav.active .mobile-menu a {
+    color: #160709;
+    border: none;
+    padding: 4px 0;
+  }
+
+  nav.active .mobile-menu .joinus {
+    padding: 4px 10px;
+    border: 1px solid #160709;
+    color: #FEFDAE;
+  }
+
+  @media (min-width: 769px) {
+    nav .logo {
+      display: block;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .burger,
+    .mobile-menu {
+      display: none;
+    }
+
+    .mobile-menu a {
+      color: #160709;
+      border: none;
+      padding: 4px 0;
+    }
+
+    .mobile-menu .joinus {
+      padding: 4px 10px;
+      border: 1px solid #160709;
+      color: #FEFDAE;
+    }
+
+    .nav-links a:hover {
+      background-color: #FEFDAE;
+      color: #160709;
+    }
+  }
+</style>
