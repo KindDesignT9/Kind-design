@@ -18,14 +18,16 @@ import Buttonblaa from "../components/Buttonblaa.astro";
     UPCOMING <br /> EVENTS
   </h1>
 
-  <section class="hero">
+  <div class="hero">
     <div class="filterwrap">
       <Buttonblaa text="All events" href="/eventlist" /> <Buttonblaa text="Talks" href="/eventlist" /> <Buttonblaa text="Workshops" href="/eventlist" /> <Buttonblaa text="Social" href="/eventlist" />
     </div>
-    {events.map((event) => (
-      <ListCard {event} />
-    ))}
-  </section>
+    <section>
+      {events.map((event) => (
+        <ListCard {event} />
+      ))}
+    </section>
+  </div>
 </Layout>
 
 <style>
@@ -34,7 +36,10 @@ import Buttonblaa from "../components/Buttonblaa.astro";
   }
 
   section {
+    display: grid;
     padding-bottom: 2rem;
+    gap: 2rem;
+    margin: 2rem;
   }
   .hero {
     position: relative;
@@ -56,5 +61,21 @@ import Buttonblaa from "../components/Buttonblaa.astro";
 
   .filterwrap {
     padding: 2rem;
+  }
+
+  @media (min-width: 768px) {
+    section {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 2rem;
+    }
+
+    section > :global(a:nth-child(odd)) {
+      grid-column: 1 / 3;
+    }
+
+    section > :global(a:nth-child(even)) {
+      grid-column: 2 / 4;
+    }
   }
 </style>
